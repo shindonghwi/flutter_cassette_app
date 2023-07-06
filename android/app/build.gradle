@@ -39,25 +39,67 @@ android {
     }
 
     sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        main {
+            res.srcDirs = ['src/main/res']
+            java.srcDirs += 'src/main/kotlin'
+        }
+        dev {
+            res.srcDirs = ['src/dev/res']
+        }
+    }
+
+    def keystoreProperties = new Properties()
+    def keystorePropertiesFile = rootProject.file('signing/keystore.properties')
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias keystoreProperties['devKeyAlias']
+            keyPassword keystoreProperties['devKeyPassword']
+            storeFile file(keystoreProperties['devStoreFile'])
+            storePassword keystoreProperties['devStorePassword']
+        }
+
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    flavorDimensions "app"
+    productFlavors {
+        dev {
+            dimension "app"
+            applicationIdSuffix ".dev"
+            versionNameSuffix ".dev"
+        }
+        prod {
+            dimension "app"
+            applicationIdSuffix ""
+            versionNameSuffix ""
+        }
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.mago.cassette.cassette"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 26
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+        debug {
+            debuggable true
             signingConfig signingConfigs.debug
+        }
+        release {
+            debuggable false
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -68,4 +110,12 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+
+
+    // firebase
+    implementation platform("com.google.firebase:firebase-bom:32.0.0")
+    implementation "com.google.firebase:firebase-crashlytics-ktx"
+    implementation "com.google.firebase:firebase-analytics-ktx"
+
 }
