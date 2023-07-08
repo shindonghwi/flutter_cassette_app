@@ -24,15 +24,12 @@ dependencies:
   get_it: ^7.6.0
   http: ^0.13.6
   shared_preferences: ^2.1.1
-  flutter_exit_app: ^1.1.2
   app_settings: ^4.2.0
   package_info_plus: ^4.0.2
-  change_app_package_name: ^1.1.0
   url_launcher: ^6.1.11
   firebase_core: ^2.13.1
   firebase_analytics: ^10.4.2
   firebase_crashlytics: ^3.3.2
-  geolocator: ^9.0.2
   app_tracking_transparency: ^2.0.4
   firebase_remote_config: ^4.2.3
 
@@ -70,14 +67,14 @@ flutter:
 
 
 flutter_native_splash:
-#  image: assets/imgs/logo_android.png
-#  image_dark: assets/imgs/logo_android.png
+  image: assets/imgs/logo_android.png
+  image_dark: assets/imgs/logo_android.png
   color: "#FFFFFF"
   color_dark: "#FFFFFF"
 
   # Android 12 이상 버전에서 적용
   android_12:
-#    image: assets/imgs/logo_android.png
-#    image_dark: assets/imgs/logo_android.png
+    image: assets/imgs/logo_android.png
+    image_dark: assets/imgs/logo_android.png
     color: "#FFFFFF"
     color_dark: "#FFFFFF"
