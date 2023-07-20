@@ -6,6 +6,17 @@
     "intro_exist_account": "이미 계정이 있다면?",
 
 
+    "signup_input_email_title": "로그인을 위한\n이메일을 입력해 줘",
+    "signup_input_pw_title": "로그인을 사용할\n비밀번호를 입력해 줘",
+    "signup_input_nickname_title": "어떤 닉네임으로\n불러주면 될까?",
+
+
+    "text_field_hint_email": "example@cassette.com",
+    "text_field_hint_pw1": "숫자, 영문, 특수문자 포함 6-12자",
+    "text_field_hint_pw2": "비밀번호 확인",
+    "text_field_hint_nickname": "2-8글자 닉네임",
+
+
     "common_signup": "회원가입",
     "common_signin": "로그인"
 
