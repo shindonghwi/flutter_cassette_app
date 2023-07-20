@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mago.cassette.cassette">
+    package="com.mago.cassette">
 
     <application
         android:name="${applicationName}"

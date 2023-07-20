@@ -85,7 +85,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mago.cassette.cassette"
+        applicationId "com.mago.cassette"
         minSdkVersion 26
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
