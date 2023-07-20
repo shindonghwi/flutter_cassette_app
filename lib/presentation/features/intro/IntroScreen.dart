@@ -1,3 +1,5 @@
+import 'package:cassette/navigation/PageMoveUtil.dart';
+import 'package:cassette/navigation/Route.dart';
 import 'package:cassette/presentation/ui/colors.dart';
 import 'package:cassette/presentation/ui/typography.dart';
 import 'package:cassette/presentation/utils/Common.dart';
@@ -100,7 +102,10 @@ class _BottomContent extends StatelessWidget {
               height: 52,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.pushNamed(context, RoutingScreen.SignUp.route);
+                  Navigator.push(
+                    context,
+                    nextSlideScreen(RoutingScreen.SignUp.route),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: getColorScheme(context).mainBlue,
@@ -122,7 +127,12 @@ class _BottomContent extends StatelessWidget {
             Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    nextSlideScreen(RoutingScreen.SignIn.route),
+                  );
+                },
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
