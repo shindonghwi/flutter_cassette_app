@@ -67,14 +67,16 @@ flutter:
 
 
 flutter_native_splash:
-  image: assets/imgs/logo_android.png
-  image_dark: assets/imgs/logo_android.png
+  full: true
+  image: assets/imgs/image_splash.png
+  image_dark: assets/imgs/image_splash.png
   color: "#FFFFFF"
   color_dark: "#FFFFFF"
 
   # Android 12 이상 버전에서 적용
   android_12:
-    image: assets/imgs/logo_android.png
-    image_dark: assets/imgs/logo_android.png
+    full: true
+    image: assets/imgs/image_splash.png
+    image_dark: assets/imgs/image_splash.png
     color: "#FFFFFF"
     color_dark: "#FFFFFF"

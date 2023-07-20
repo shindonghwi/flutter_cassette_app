@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-
 class SplashScreen extends HookConsumerWidget {
   const SplashScreen({super.key});
 
@@ -14,7 +13,7 @@ class SplashScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Future.delayed(const Duration(seconds: 2), (){
+        Future.delayed(const Duration(seconds: 1), () {
           Navigator.push(
             context,
             nextFadeInOutScreen(RoutingScreen.Intro.route),
@@ -28,24 +27,12 @@ class SplashScreen extends HookConsumerWidget {
       backgroundColor: getColorScheme(context).bg,
       body: Stack(
         children: [
-          Container(
-            width: getMediaQuery(context).size.width,
-            height: getMediaQuery(context).size.height * 0.32,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    const Color(0xFF7C96FC).withOpacity(0.8),
-                    const Color(0xFF4C6DEC).withOpacity(0.0),
-                  ],
-                )),
-          ),
-          Container(
-            margin: EdgeInsets.fromLTRB(0, getMediaQuery(context).size.height * 0.3, 0, 0),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Image.asset("assets/imgs/image_splash.png"),
+          Image.asset("assets/imgs/image_splash.png", fit: BoxFit.cover),
+          Center(
+            child: Image.asset(
+              "assets/imgs/image_logo_text.png",
+              width: 144,
+              height: 36,
             ),
           )
         ],
