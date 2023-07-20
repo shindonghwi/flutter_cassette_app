@@ -1,3 +1,12 @@
 {
-    "appTitle": "오디"
+    "appTitle": "오디",
+
+    "intro_title": "목소리로 기억하는 감정의 주파수",
+    "intro_subtitle": "3467명의 사람들이 감정을 기록하고\n2612명의 사람들이 감정을 공유하고 있어",
+    "intro_exist_account": "이미 계정이 있다면?",
+
+
+    "common_signup": "회원가입",
+    "common_signin": "로그인"
+
 }

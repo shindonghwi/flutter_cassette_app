@@ -25,7 +25,7 @@ extension StyleColor on ColorScheme{
   Color get bg => brightness == Brightness.light ? Color(0xFFF3F1ED): Color(0xFFF3F1ED);
   Color get bg2 => brightness == Brightness.light ? Color(0xFFEBE5D9): Color(0xFFEBE5D9);
 
-  Color get mainBlue => brightness == Brightness.light ? Color(0xFF345AEC): Color(0xFF345AEC);
+  Color get mainBlue => brightness == Brightness.light ? Color(0xFF4C6DEC): Color(0xFF4C6DEC);
   Color get mainYellow => brightness == Brightness.light ? Color(0xFFFFCE22): Color(0xFFFFCE22);
 
   Color get subGreen => brightness == Brightness.light ? Color(0xFF2E7E61): Color(0xFF2E7E61);
