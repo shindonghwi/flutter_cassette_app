@@ -16,7 +16,10 @@
     "text_field_hint_pw2": "비밀번호 확인",
     "text_field_hint_nickname": "2-8글자 닉네임",
 
+    "text_field_success_email": "올바른 이메일 형식입니다",
+    "text_field_error_email": "올바른 이메일 주소를 입력해주세요",
 
+    "common_next": "다음",
     "common_signup": "회원가입",
     "common_signin": "로그인"
 

@@ -1,5 +1,6 @@
 import 'package:cassette/navigation/PageMoveUtil.dart';
 import 'package:cassette/navigation/Route.dart';
+import 'package:cassette/presentation/components/button/FillButton.dart';
 import 'package:cassette/presentation/ui/colors.dart';
 import 'package:cassette/presentation/ui/typography.dart';
 import 'package:cassette/presentation/utils/Common.dart';
@@ -97,29 +98,20 @@ class _BottomContent extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              width: getMediaQuery(context).size.width,
-              height: 52,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    nextSlideScreen(RoutingScreen.SignUp.route),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: getColorScheme(context).mainBlue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Text(
-                  getAppLocalizations(context).common_signup,
-                  style: getTextTheme(context).b1_R.copyWith(
-                        color: getColorScheme(context).white,
-                      ),
+            FillButton.round(
+              content: Text(
+                getAppLocalizations(context).common_signup,
+                style: getTextTheme(context).b1_R.copyWith(
+                  color: getColorScheme(context).white,
                 ),
               ),
+              isActivated: true,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  nextSlideScreen(RoutingScreen.SignUp.route),
+                );
+              },
             ),
             const SizedBox(
               height: 28,
