@@ -25,7 +25,12 @@
     "text_field_success_nickname": "올바른 닉네임 형식입니다",
     "text_field_error_nickname": "올바른 닉네임 형식을 입력해주세요",
 
+    "bottom_sheet_policy_agree_all": "약관에 모두 동의합니다",
+    "bottom_sheet_policy_use": "[필수] 이용약관 동의",
+    "bottom_sheet_policy_individual": "[필수] 개인정보처리방침 동의",
+
     "common_next": "다음",
+    "common_confirm": "확인",
     "common_signup": "회원가입",
     "common_signin": "로그인"
 
