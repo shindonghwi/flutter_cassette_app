@@ -6,18 +6,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class OutlineTextField extends HookWidget {
+  final String hint;
   final String successMessage;
   final String errorMessage;
+  final TextInputType textInputType;
+  final TextInputAction textInputAction;
   final List<RegCheckType> checkRegList;
   final bool showCheckButton;
+  final bool showPwVisibleButton;
+  final bool forceErrorCheck;
   final Function(String)? onChanged;
 
   const OutlineTextField({
     Key? key,
+    required this.hint,
     this.successMessage = '',
     this.errorMessage = '',
     this.checkRegList = const [],
     this.showCheckButton = true,
+    this.showPwVisibleButton = false,
+    this.forceErrorCheck = false,
+    this.textInputType = TextInputType.text,
+    this.textInputAction = TextInputAction.next,
     this.onChanged,
   }) : super(key: key);
 
@@ -27,6 +37,8 @@ class OutlineTextField extends HookWidget {
 
     final isSuccess = useState<bool?>(null);
 
+    final isPwVisible = useState(false);
+
     return TextField(
       controller: controller,
       onChanged: (text) {
@@ -34,12 +46,26 @@ class OutlineTextField extends HookWidget {
           if (element == RegCheckType.Email) {
             isSuccess.value = RegUtil.checkEmail(text);
           }
+          if (element == RegCheckType.PW) {
+            isSuccess.value = RegUtil.checkPw(text);
+          }
+          if (element == RegCheckType.Nickname) {
+            isSuccess.value = RegUtil.checkNickname(text);
+          }
         }
+
+        if (isSuccess.value == false && forceErrorCheck) {
+          isSuccess.value = forceErrorCheck;
+        }
+
         onChanged?.call(text);
       },
+      obscureText: isPwVisible.value ? false : textInputType == TextInputType.visiblePassword,
+      keyboardType: textInputType,
+      textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         isCollapsed: true,
-        hintText: getAppLocalizations(context).text_field_hint_email,
+        hintText: hint,
         hintStyle: getTextTheme(context).b1_R.copyWith(
               color: getColorScheme(context).gray40,
             ),
@@ -66,7 +92,7 @@ class OutlineTextField extends HookWidget {
         helperStyle: getTextTheme(context).b2_R.copyWith(
               color: getColorScheme(context).mainBlue,
             ),
-        errorText: isSuccess.value == false && errorMessage.isNotEmpty ? errorMessage : null,
+        errorText: forceErrorCheck || isSuccess.value == false && errorMessage.isNotEmpty ? errorMessage : null,
         errorStyle: getTextTheme(context).b2_R.copyWith(
               color: getColorScheme(context).subRed,
             ),
@@ -75,11 +101,29 @@ class OutlineTextField extends HookWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
+              if (showPwVisibleButton)
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () => isPwVisible.value = !isPwVisible.value,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Image.asset(
+                        isSuccess.value == true ? "assets/imgs/icon_view.png" : "assets/imgs/icon_view.png",
+                        width: 24,
+                        height: 24,
+                      ),
+                    ),
+                  ),
+                ),
               if (showCheckButton)
-                Image.asset(
-                  isSuccess.value == true ? "assets/imgs/icon_check_on.png" : "assets/imgs/icon_check_off.png",
-                  width: 24,
-                  height: 24,
+                Container(
+                  margin: const EdgeInsets.only(left: 8),
+                  child: Image.asset(
+                    isSuccess.value == true ? "assets/imgs/icon_check_on.png" : "assets/imgs/icon_check_off.png",
+                    width: 24,
+                    height: 24,
+                  ),
                 ),
             ],
           ),

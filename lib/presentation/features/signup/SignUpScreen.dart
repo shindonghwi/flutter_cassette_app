@@ -12,8 +12,13 @@ class SignUpScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Tab> tabs = [Tab(text: 'Tab 1'), Tab(text: 'Tab 2'), Tab(text: 'Tab 3')];
-    final controller = useTabController(initialLength: tabs.length, initialIndex: 0);
+    final controller = useTabController(initialLength: 3, initialIndex: 0);
+
+    final List<Widget> tabs = [
+      SignUpInputEmail(controller: controller),
+      SignUpInputPw(controller: controller),
+      SignUpInputNickname(controller: controller),
+    ];
 
     final currentTabIndex = useState(-1);
 
@@ -30,37 +35,50 @@ class SignUpScreen extends HookWidget {
       return () => controller.dispose;
     }, []);
 
-    return DefaultTabController(
-      length: tabs.length,
-      child: Scaffold(
-        backgroundColor: getColorScheme(context).bg,
-        appBar: AppBarBack(
-          bottomHeight: 1,
-          bottomWidget: TweenAnimationBuilder<double>(
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
-            tween: Tween<double>(
-              begin: currentTabIndex.value / tabs.length,
-              end: (currentTabIndex.value + 1) / tabs.length,
-            ),
-            builder: (context, value, _) => SizedBox(
-              height: 2,
-              child: LinearProgressIndicator(
-                value: value,
-                color: getColorScheme(context).mainBlue,
-                backgroundColor: getColorScheme(context).bg2,
+    return WillPopScope(
+      onWillPop: () async {
+        if (currentTabIndex.value == 0) {
+          return true;
+        } else {
+          controller.animateTo(currentTabIndex.value - 1);
+          return false;
+        }
+      },
+      child: DefaultTabController(
+        length: tabs.length,
+        child: Scaffold(
+          backgroundColor: getColorScheme(context).bg,
+          appBar: AppBarBack(
+            bottomHeight: 1,
+            bottomWidget: TweenAnimationBuilder<double>(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeInOut,
+              tween: Tween<double>(
+                begin: currentTabIndex.value / tabs.length,
+                end: (currentTabIndex.value + 1) / tabs.length,
+              ),
+              builder: (context, value, _) => SizedBox(
+                height: 2,
+                child: LinearProgressIndicator(
+                  value: value,
+                  color: getColorScheme(context).mainBlue,
+                  backgroundColor: getColorScheme(context).bg2,
+                ),
               ),
             ),
+            onBack: () {
+              if (currentTabIndex.value == 0) {
+                Navigator.pop(context);
+              } else {
+                controller.animateTo(currentTabIndex.value - 1);
+              }
+            },
           ),
-        ),
-        body: SafeArea(
-          child: TabBarView(
-            controller: controller,
-            children: [
-              SignUpInputEmail(controller: controller),
-              SignUpInputPw(),
-              SignUpInputNickname(),
-            ],
+          body: SafeArea(
+            child: TabBarView(
+              controller: controller,
+              children: tabs.map((e) => e).toList(),
+            ),
           ),
         ),
       ),

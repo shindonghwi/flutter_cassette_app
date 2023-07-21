@@ -1,13 +1,23 @@
 class RegUtil{
 
   static bool checkEmail(String email){
-    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-    return emailRegex.hasMatch(email);
+    final regex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    return regex.hasMatch(email);
+  }
+
+  static bool checkPw(String pw){
+    final regex = RegExp(r'^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[ -~]{6,12}$');
+    return regex.hasMatch(pw);
+  }
+
+  static bool checkNickname(String nickname){
+    final regex = RegExp(r'^[a-zA-Z0-9_가-힣]{2,8}$');
+    return regex.hasMatch(nickname);
   }
 
 }
 
 
 enum RegCheckType{
-  Email
+  Email, PW, Nickname
 }

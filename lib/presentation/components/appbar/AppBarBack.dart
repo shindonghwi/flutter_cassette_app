@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
   final double bottomHeight;
   final Widget? bottomWidget;
+  final Function()? onBack;
 
   const AppBarBack({
     Key? key,
     this.bottomWidget,
     this.bottomHeight = 0,
+    this.onBack,
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
           Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () => Navigator.of(context).pop(true),
+              onTap: () => onBack == null ? Navigator.pop(context) : onBack?.call(),
               child: Padding(
                 padding: const EdgeInsets.all(14.0),
                 child: Image.asset(

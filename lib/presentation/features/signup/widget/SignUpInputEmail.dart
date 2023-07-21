@@ -34,6 +34,7 @@ class SignUpInputEmail extends HookWidget {
         Padding(
           padding: const EdgeInsets.all(20),
           child: OutlineTextField(
+            hint: getAppLocalizations(context).text_field_hint_email,
             successMessage: getAppLocalizations(context).text_field_success_email,
             errorMessage: getAppLocalizations(context).text_field_error_email,
             checkRegList: const [
