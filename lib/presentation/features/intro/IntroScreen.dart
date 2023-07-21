@@ -70,12 +70,12 @@ class _MainContent extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 39,
                 ),
                 Image.asset(
                   "assets/imgs/image_intro_cassete.png",
-                  width: 250,
-                  height: 250,
+                  width: 278,
+                  height: 274,
                 ),
               ],
             ),
@@ -93,7 +93,7 @@ class _BottomContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 60),
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 56),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -135,7 +135,7 @@ class _BottomContent extends StatelessWidget {
                 },
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -67,7 +67,10 @@ flutter:
 
 
 flutter_native_splash:
-  full: true
+  android: true
+  ios: true
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
   image: assets/imgs/image_splash.png
   image_dark: assets/imgs/image_splash.png
   color: "#FFFFFF"
@@ -75,7 +78,10 @@ flutter_native_splash:
 
   # Android 12 이상 버전에서 적용
   android_12:
-    full: true
+    android_gravity: fill
+    ios_content_mode: scaleAspectFill
+    android: true
+    ios: true
     image: assets/imgs/image_splash.png
     image_dark: assets/imgs/image_splash.png
     color: "#FFFFFF"
