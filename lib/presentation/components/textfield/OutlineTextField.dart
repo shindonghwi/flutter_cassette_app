@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class OutlineTextField extends HookWidget {
+  final TextEditingController? controller;
   final String hint;
   final String successMessage;
   final String errorMessage;
@@ -19,6 +20,7 @@ class OutlineTextField extends HookWidget {
 
   const OutlineTextField({
     Key? key,
+    this.controller,
     required this.hint,
     this.successMessage = '',
     this.errorMessage = '',
@@ -33,7 +35,7 @@ class OutlineTextField extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController();
+    TextEditingController controller = this.controller ?? useTextEditingController();
 
     final isSuccess = useState<bool?>(null);
 

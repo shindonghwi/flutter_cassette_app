@@ -11,10 +11,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 class SignUpInputNickname extends HookWidget {
   final TabController controller;
+  final TextEditingController textEditingController;
 
   const SignUpInputNickname({
     Key? key,
     required this.controller,
+    required this.textEditingController,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,7 @@ class SignUpInputNickname extends HookWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 32, 20, 0),
           child: Text(
-            getAppLocalizations(context).signup_input_email_title,
+            getAppLocalizations(context).signup_input_nickname_title,
             style: getTextTheme(context).h1_R.copyWith(
                   color: getColorScheme(context).gray80,
                 ),
@@ -36,6 +38,7 @@ class SignUpInputNickname extends HookWidget {
         Padding(
           padding: const EdgeInsets.all(20),
           child: OutlineTextField(
+            controller: textEditingController,
             hint: getAppLocalizations(context).text_field_hint_nickname,
             successMessage: getAppLocalizations(context).text_field_success_nickname,
             errorMessage: getAppLocalizations(context).text_field_error_nickname,

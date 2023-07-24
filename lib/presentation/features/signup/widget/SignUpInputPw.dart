@@ -9,10 +9,14 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 class SignUpInputPw extends HookWidget {
   final TabController controller;
+  final TextEditingController textEditingController1;
+  final TextEditingController textEditingController2;
 
   const SignUpInputPw({
     Key? key,
     required this.controller,
+    required this.textEditingController1,
+    required this.textEditingController2,
   }) : super(key: key);
 
   @override
@@ -41,6 +45,7 @@ class SignUpInputPw extends HookWidget {
         Padding(
           padding: const EdgeInsets.all(20),
           child: OutlineTextField(
+            controller: textEditingController1,
             hint: getAppLocalizations(context).text_field_hint_pw1,
             successMessage: getAppLocalizations(context).text_field_success_pw1,
             errorMessage: getAppLocalizations(context).text_field_error_pw1,
@@ -59,6 +64,7 @@ class SignUpInputPw extends HookWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: OutlineTextField(
+            controller: textEditingController2,
             hint: getAppLocalizations(context).text_field_hint_pw2,
             successMessage: getAppLocalizations(context).text_field_success_pw2,
             errorMessage: getAppLocalizations(context).text_field_error_pw2,

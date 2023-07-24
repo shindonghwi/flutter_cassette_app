@@ -9,10 +9,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 class SignUpInputEmail extends HookWidget {
   final TabController controller;
+  final TextEditingController textEditingController;
 
   const SignUpInputEmail({
     Key? key,
     required this.controller,
+    required this.textEditingController,
   }) : super(key: key);
 
   @override
@@ -34,6 +36,7 @@ class SignUpInputEmail extends HookWidget {
         Padding(
           padding: const EdgeInsets.all(20),
           child: OutlineTextField(
+            controller: textEditingController,
             hint: getAppLocalizations(context).text_field_hint_email,
             successMessage: getAppLocalizations(context).text_field_success_email,
             errorMessage: getAppLocalizations(context).text_field_error_email,
