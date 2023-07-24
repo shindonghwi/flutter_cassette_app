@@ -17,7 +17,7 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: 120,
+      // leadingWidth: 120,
       leading: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -26,7 +26,7 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
             child: InkWell(
               onTap: () => onBack == null ? Navigator.pop(context) : onBack?.call(),
               child: Padding(
-                padding: const EdgeInsets.all(14.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Image.asset(
                   "assets/imgs/icon_back.png",
                   width: 24,

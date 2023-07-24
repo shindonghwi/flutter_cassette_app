@@ -114,7 +114,7 @@ class _BottomContent extends StatelessWidget {
               },
             ),
             const SizedBox(
-              height: 28,
+              height: 16,
             ),
             Material(
               color: Colors.transparent,
@@ -127,7 +127,7 @@ class _BottomContent extends StatelessWidget {
                 },
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

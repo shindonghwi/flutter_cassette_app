@@ -65,6 +65,9 @@ class OutlineTextField extends HookWidget {
       obscureText: isPwVisible.value ? false : textInputType == TextInputType.visiblePassword,
       keyboardType: textInputType,
       textInputAction: TextInputAction.next,
+      style: getTextTheme(context).b1_R.copyWith(
+            color: getColorScheme(context).gray80,
+          ),
       decoration: InputDecoration(
         isCollapsed: true,
         hintText: hint,
@@ -74,6 +77,14 @@ class OutlineTextField extends HookWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(
+            width: 5,
+            color: getColorScheme(context).bg2,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            width: 1,
             color: getColorScheme(context).bg2,
           ),
         ),
