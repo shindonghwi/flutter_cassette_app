@@ -1,11 +1,10 @@
-import 'package:cassette/presentation/components/appbar/AppBarBack.dart';
-import 'package:cassette/presentation/features/signup/widget/SignUpInputEmail.dart';
-import 'package:cassette/presentation/features/signup/widget/SignUpInputNickname.dart';
-import 'package:cassette/presentation/features/signup/widget/SignUpInputPw.dart';
+import 'package:cassette/presentation/components/appbar/AppBarClose.dart';
+import 'package:cassette/presentation/components/scroll_sheet/ScrollSheetContainer.dart';
+import 'package:cassette/presentation/components/textfield/OutlineTextField.dart';
 import 'package:cassette/presentation/ui/colors.dart';
+import 'package:cassette/presentation/ui/typography.dart';
 import 'package:cassette/presentation/utils/Common.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ConnectFriendScreen extends HookWidget {
@@ -13,82 +12,103 @@ class ConnectFriendScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTabController(initialLength: 3, initialIndex: 0);
+    return const ScrollSheetContainer(
+      appbar: AppBarClose(),
+      fixedWidget: _ConnectFriendFixContent(),
+    );
+  }
+}
 
-    final List<Widget> tabs = [
-      SignUpInputEmail(
-        controller: controller,
-        textEditingController: useTextEditingController(),
-      ),
-      SignUpInputPw(
-          controller: controller,
-          textEditingController1: useTextEditingController(),
-          textEditingController2: useTextEditingController()),
-      SignUpInputNickname(
-        controller: controller,
-        textEditingController: useTextEditingController(),
-      ),
-    ];
+/// 고정 영역
+class _ConnectFriendFixContent extends HookWidget {
+  const _ConnectFriendFixContent({Key? key}) : super(key: key);
 
-    final currentTabIndex = useState(0);
-
-    useEffect(() {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Future.delayed(const Duration(milliseconds: 250), () {
-          currentTabIndex.value = 0;
-        });
-
-        controller.addListener(() {
-          currentTabIndex.value = controller.index;
-        });
-      });
-      return () => controller.dispose;
-    }, []);
-
-    return DefaultTabController(
-      length: tabs.length,
-      child: Scaffold(
-        backgroundColor: getColorScheme(context).bg,
-        appBar: AppBarBack(
-          bottomHeight: 1,
-          bottomWidget: TweenAnimationBuilder<double>(
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
-            tween: Tween<double>(
-              begin: currentTabIndex.value / tabs.length,
-              end: (currentTabIndex.value + 1) / tabs.length,
-            ),
-            builder: (context, value, _) => SizedBox(
-              height: 2,
-              child: LinearProgressIndicator(
-                value: value,
-                color: getColorScheme(context).mainBlue,
-                backgroundColor: getColorScheme(context).bg2,
-              ),
-            ),
-          ),
-          onBack: () {
-            if (currentTabIndex.value == 0) {
-              FocusScope.of(context).unfocus();
-              Navigator.pop(context);
-              // 키보드 내리기
-            } else {
-              controller.animateTo(currentTabIndex.value - 1);
-            }
-          },
-        ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: IndexedStack(
-                  index: currentTabIndex.value,
-                  children: tabs,
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            getAppLocalizations(context).connect_friend_title,
+            style: getTextTheme(context).h2_B.copyWith(
+                  color: getColorScheme(context).gray80,
                 ),
-              )
-            ],
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 32, 0, 0),
+            child: Text(
+              getAppLocalizations(context).connect_friend_my_invite_code_title,
+              style: getTextTheme(context).b1_R.copyWith(
+                    color: getColorScheme(context).gray80,
+                  ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: OutlineTextField(
+                    controller: useTextEditingController(),
+                    hint: getAppLocalizations(context).connect_friend_my_invite_code_hint,
+                    showCheckButton: false,
+                    textInputType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    onChanged: (text) {},
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: getColorScheme(context).mainBlue,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  margin: const EdgeInsets.only(left: 8),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(8),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
+                        child: Text(
+                          getAppLocalizations(context).common_copy,
+                          style: getTextTheme(context).b1_R.copyWith(
+                                color: getColorScheme(context).white,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 24, 0, 0),
+            child: Text(
+              getAppLocalizations(context).connect_friend_received_invite_code_title,
+              style: getTextTheme(context).b1_R.copyWith(
+                    color: getColorScheme(context).gray80,
+                  ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+            child: OutlineTextField(
+              controller: useTextEditingController(),
+              hint: getAppLocalizations(context).connect_friend_received_invite_code_hint,
+              showCheckButton: false,
+              textInputType: TextInputType.text,
+              textInputAction: TextInputAction.done,
+              onChanged: (text) {},
+            ),
+          )
+        ],
       ),
     );
   }

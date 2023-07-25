@@ -129,7 +129,8 @@ class SignInScreen extends HookConsumerWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          nextSlideScreen(RoutingScreen.SignUp.route),
+                          // nextSlideScreen(RoutingScreen.SignUp.route),
+                          nextSlideScreen(RoutingScreen.ConnectFriend.route, isFullScreen: true),
                         );
                       },
                       borderRadius: BorderRadius.circular(4),

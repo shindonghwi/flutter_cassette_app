@@ -15,6 +15,11 @@
     "reset_pw_title": "비밀번호를 재설정할 수 있는\n메일을 보내줄게",
     "reset_pw_send_email": "이메일 보내기",
 
+    "connect_friend_title": "카세트를 연결하고\n생각과 감정을 나눠보세요",
+    "connect_friend_my_invite_code_title": "나의 초대 코드",
+    "connect_friend_my_invite_code_hint": "KMA12345678",
+    "connect_friend_received_invite_code_title": "전달받은 코드가 있나요?",
+    "connect_friend_received_invite_code_hint": "전달받은 초대 코드 입력",
 
     "text_field_hint_email": "example@cassette.com",
     "text_field_hint_pw1": "숫자, 영문, 특수문자 포함 6-12자",
@@ -38,10 +43,13 @@
     "alert_welcome_title": "가입을 환영합니다!",
     "alert_welcome_body": "친구와 카세트를 연결하고\n생각과 감정을 나눠보세요",
 
+    "label_decoration_word": "꾸밈단어",
+
     "common_next": "다음",
     "common_confirm": "확인",
     "common_signup": "회원가입",
     "common_signin": "로그인",
+    "common_copy": "복사",
     "common_email": "이메일",
     "common_pw": "비밀번호"
 

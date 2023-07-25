@@ -1,3 +1,4 @@
+import 'package:cassette/presentation/features/connect_friend/ConnectFriendScreen.dart';
 import 'package:cassette/presentation/features/intro/IntroScreen.dart';
 import 'package:cassette/presentation/features/reset_pw/ResetPwScreen.dart';
 import 'package:cassette/presentation/features/signin/SignInScreen.dart';
@@ -10,7 +11,8 @@ enum RoutingScreen {
   Intro(route: "/intro"), // 인트로
   SignIn(route: "/signin"), // 로그인
   SignUp(route: "/signup"), // 회원가입
-  ResetPw(route: "/reset/pw"); // 비밀번호 재설정
+  ResetPw(route: "/reset/pw"), // 비밀번호 재설정
+  ConnectFriend(route: "/connect_friend"); // 친구연결
 
   final String route;
 
@@ -25,6 +27,7 @@ enum RoutingScreen {
       RoutingScreen.SignIn.route: (context) => const SignInScreen(),
       RoutingScreen.ResetPw.route: (context) => const ResetPwScreen(),
       RoutingScreen.SignUp.route: (context) => const SignUpScreen(),
+      RoutingScreen.ConnectFriend.route: (context) => const ConnectFriendScreen(),
     };
   }
 
@@ -41,6 +44,8 @@ enum RoutingScreen {
         return const SignUpScreen();
       case "/reset/pw":
         return const ResetPwScreen();
+      case "/connect_friend":
+        return const ConnectFriendScreen();
       default:
         return const SignInScreen();
     }

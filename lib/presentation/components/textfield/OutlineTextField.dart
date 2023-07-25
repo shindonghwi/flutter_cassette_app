@@ -64,10 +64,17 @@ class OutlineTextField extends HookWidget {
       },
       obscureText: isPwVisible.value ? false : textInputType == TextInputType.visiblePassword,
       keyboardType: textInputType,
-      textInputAction: TextInputAction.next,
+      textInputAction: textInputAction,
       style: getTextTheme(context).b1_R.copyWith(
             color: getColorScheme(context).gray80,
           ),
+      onSubmitted: (text) {
+        if (textInputAction == TextInputAction.next) {
+          FocusScope.of(context).nextFocus();
+        }else if(textInputAction == TextInputAction.done){
+          FocusScope.of(context).unfocus();
+        }
+      },
       decoration: InputDecoration(
         isCollapsed: true,
         hintText: hint,

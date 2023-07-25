@@ -2,12 +2,12 @@ import 'package:cassette/presentation/ui/colors.dart';
 import 'package:cassette/presentation/utils/Common.dart';
 import 'package:flutter/material.dart';
 
-class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
+class AppBarClose extends StatelessWidget implements PreferredSizeWidget {
   final double bottomHeight;
   final Widget? bottomWidget;
   final Function()? onBack;
 
-  const AppBarBack({
+  const AppBarClose({
     Key? key,
     this.bottomWidget,
     this.bottomHeight = 0,
@@ -18,25 +18,22 @@ class AppBarBack extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      leading: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: () => onBack == null ? Navigator.pop(context) : onBack?.call(),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset(
-                  "assets/imgs/icon_back.png",
-                  width: 24,
-                  height: 24,
-                ),
+      actions: [
+        Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () => onBack == null ? Navigator.pop(context) : onBack?.call(),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset(
+                "assets/imgs/icon_close.png",
+                width: 24,
+                height: 24,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
       bottom: bottomWidget == null
           ? null
           : _BottomWidget(
