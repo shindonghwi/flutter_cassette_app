@@ -1,6 +1,7 @@
 import 'package:cassette/presentation/components/bottom_sheet/BottomSheetPolicyAgree.dart';
 import 'package:cassette/presentation/components/bottom_sheet/CommonBottomSheet.dart';
 import 'package:cassette/presentation/components/button/FillButton.dart';
+import 'package:cassette/presentation/components/dialog/Alert.dart';
 import 'package:cassette/presentation/components/textfield/OutlineTextField.dart';
 import 'package:cassette/presentation/ui/colors.dart';
 import 'package:cassette/presentation/ui/typography.dart';
@@ -60,7 +61,10 @@ class SignUpInputNickname extends HookWidget {
           onPressed: () => CommonBottomSheet.showBottomSheet(
             context,
             child: BottomSheetPolicyAgree(
-              confirmCallback: () => Navigator.of(context).pop(true),
+              confirmCallback: () {
+                Navigator.of(context).pop(true);
+                Alert.showAlert(context, AlertType.Welcome);
+              },
             ),
           ),
         )

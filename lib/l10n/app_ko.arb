@@ -34,6 +34,10 @@
     "bottom_sheet_policy_use": "[필수] 이용약관 동의",
     "bottom_sheet_policy_individual": "[필수] 개인정보처리방침 동의",
 
+
+    "alert_welcome_title": "가입을 환영합니다!",
+    "alert_welcome_body": "친구와 카세트를 연결하고\n생각과 감정을 나눠보세요",
+
     "common_next": "다음",
     "common_confirm": "확인",
     "common_signup": "회원가입",
