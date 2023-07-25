@@ -122,7 +122,7 @@ class OutlineTextField extends HookWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Image.asset(
-                        isSuccess.value == true ? "assets/imgs/icon_view.png" : "assets/imgs/icon_view.png",
+                        isPwVisible.value == true ? "assets/imgs/icon_view.png" : "assets/imgs/icon_hide.png",
                         width: 24,
                         height: 24,
                       ),

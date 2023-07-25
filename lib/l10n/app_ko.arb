@@ -10,6 +10,8 @@
     "signup_input_pw_title": "로그인에 사용할\n비밀번호를 입력해 줘",
     "signup_input_nickname_title": "어떤 닉네임으로\n불러주면 될까?",
 
+    "signin_find_pw": "비밀번호 찾기",
+
 
     "text_field_hint_email": "example@cassette.com",
     "text_field_hint_pw1": "숫자, 영문, 특수문자 포함 6-12자",
@@ -32,6 +34,8 @@
     "common_next": "다음",
     "common_confirm": "확인",
     "common_signup": "회원가입",
-    "common_signin": "로그인"
+    "common_signin": "로그인",
+    "common_email": "이메일",
+    "common_pw": "비밀번호"
 
 }
