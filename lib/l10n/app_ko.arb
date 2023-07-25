@@ -12,6 +12,9 @@
 
     "signin_find_pw": "비밀번호 찾기",
 
+    "reset_pw_title": "비밀번호를 재설정할 수 있는\n메일을 보내줄게",
+    "reset_pw_send_email": "이메일 보내기",
+
 
     "text_field_hint_email": "example@cassette.com",
     "text_field_hint_pw1": "숫자, 영문, 특수문자 포함 6-12자",

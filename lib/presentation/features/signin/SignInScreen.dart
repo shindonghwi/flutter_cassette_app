@@ -98,7 +98,12 @@ class SignInScreen extends HookConsumerWidget {
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          nextSlideScreen(RoutingScreen.ResetPw.route),
+                        );
+                      },
                       borderRadius: BorderRadius.circular(4),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
