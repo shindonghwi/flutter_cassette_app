@@ -1,3 +1,56 @@
 {
-    "appTitle": "오디"
+    "appTitle": "오디",
+
+    "intro_title": "목소리로 기억하는 감정의 주파수",
+    "intro_subtitle": "3467명의 사람들이 감정을 기록하고\n2612명의 사람들이 감정을 공유하고 있어",
+    "intro_exist_account": "이미 계정이 있다면?",
+
+
+    "signup_input_email_title": "로그인을 위한\n이메일을 입력해 줘",
+    "signup_input_pw_title": "로그인에 사용할\n비밀번호를 입력해 줘",
+    "signup_input_nickname_title": "어떤 닉네임으로\n불러주면 될까?",
+
+    "signin_find_pw": "비밀번호 찾기",
+
+    "reset_pw_title": "비밀번호를 재설정할 수 있는\n메일을 보내줄게",
+    "reset_pw_send_email": "이메일 보내기",
+
+    "connect_friend_title": "카세트를 연결하고\n생각과 감정을 나눠보세요",
+    "connect_friend_my_invite_code_title": "나의 초대 코드",
+    "connect_friend_my_invite_code_hint": "KMA12345678",
+    "connect_friend_received_invite_code_title": "전달받은 코드가 있나요?",
+    "connect_friend_received_invite_code_hint": "전달받은 초대 코드 입력",
+
+    "text_field_hint_email": "example@cassette.com",
+    "text_field_hint_pw1": "숫자, 영문, 특수문자 포함 6-12자",
+    "text_field_hint_pw2": "비밀번호 확인",
+    "text_field_hint_nickname": "2-8글자 닉네임",
+
+    "text_field_success_email": "올바른 이메일 형식입니다",
+    "text_field_error_email": "올바른 이메일 주소를 입력해주세요",
+    "text_field_success_pw1": "올바른 비밀번호 형식입니다",
+    "text_field_error_pw1": "올바른 비밀번호 형식을 입력해주세요",
+    "text_field_success_pw2": "비밀번호가 일치합니다",
+    "text_field_error_pw2": "비밀번호가 일치하지 않습니다",
+    "text_field_success_nickname": "올바른 닉네임 형식입니다",
+    "text_field_error_nickname": "올바른 닉네임 형식을 입력해주세요",
+
+    "bottom_sheet_policy_agree_all": "약관에 모두 동의합니다",
+    "bottom_sheet_policy_use": "[필수] 이용약관 동의",
+    "bottom_sheet_policy_individual": "[필수] 개인정보처리방침 동의",
+
+
+    "alert_welcome_title": "가입을 환영합니다!",
+    "alert_welcome_body": "친구와 카세트를 연결하고\n생각과 감정을 나눠보세요",
+
+    "label_decoration_word": "꾸밈단어",
+
+    "common_next": "다음",
+    "common_confirm": "확인",
+    "common_signup": "회원가입",
+    "common_signin": "로그인",
+    "common_copy": "복사",
+    "common_email": "이메일",
+    "common_pw": "비밀번호"
+
 }
